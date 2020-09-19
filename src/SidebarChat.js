@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import './SidebarChat.css';
 import { Avatar } from '@material-ui/core';
+import db from './firebase';
 
 const SidebarChat = ({ id,name,addNewChat}) => {
     const [seed,setSeed]=useState('');
@@ -15,6 +16,9 @@ const SidebarChat = ({ id,name,addNewChat}) => {
 
         if (roomName ){
             // do some cleverdatabase stuff
+        db.collection('rooms').add({
+            name:roomName,
+        })
         }
     };
 
